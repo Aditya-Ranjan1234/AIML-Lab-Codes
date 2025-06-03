@@ -6,7 +6,8 @@ from algorithms import (
     k_means_algorithm,
     knn_algorithm,
     logistic_regression_algorithm,
-    naive_bayes_algorithm
+    naive_bayes_algorithm,
+    decision_tree_algorithm
 )
 
 # Set page configuration
@@ -303,6 +304,11 @@ while not checkForWin():
     "Naive Bayes": {
         "code": naive_bayes_algorithm,
         "description": "Implementation of the Gaussian Naive Bayes classifier for classification tasks."
+    },
+
+    "Decision Tree Classifier": {
+        "code": decision_tree_algorithm,
+        "description": "Implementation of the Decision Tree algorithm for classification tasks."
     }
 }
 
