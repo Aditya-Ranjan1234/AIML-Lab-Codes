@@ -425,3 +425,57 @@ if __name__ == "__main__":
     plt.ylabel('Sepal Width')
     plt.show()
 """
+
+# Decision Tree Classifier
+decision_tree_algorithm = """
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Example usage
+if __name__ == "__main__":
+    # Load the Iris dataset
+    iris = load_iris()
+    X, y = iris.data, iris.target
+
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+    # Create and train the Decision Tree classifier
+    # We'll use a simple configuration for clarity
+    clf = DecisionTreeClassifier(max_depth=3, random_state=42)
+    clf.fit(X_train, y_train)
+
+    # Make predictions
+    predictions = clf.predict(X_test)
+
+    # Calculate accuracy
+    accuracy = accuracy_score(y_test, predictions)
+    print(f"Accuracy: {accuracy:.2f}")
+
+    # Visualize the decision tree
+    plt.figure(figsize=(12, 8))
+    plot_tree(clf, filled=True, feature_names=iris.feature_names, class_names=list(iris.target_names), rounded=True)
+    plt.title("Decision Tree Classifier for Iris Dataset")
+    plt.show()
+
+    # Example of predicting a new sample
+    # Sample format: [sepal length (cm), sepal width (cm), petal length (cm), petal width (cm)]
+    new_sample = np.array([[5.1, 3.5, 1.4, 0.2]]) # Example: Iris Setosa
+    prediction_new = clf.predict(new_sample)
+    predicted_class_name = iris.target_names[prediction_new[0]]
+    print(f"Prediction for new sample {new_sample}: {predicted_class_name}")
+
+    new_sample_versicolor = np.array([[6.0, 2.7, 4.0, 1.2]]) # Example data that might be Versicolor
+    prediction_versicolor = clf.predict(new_sample_versicolor)
+    predicted_class_name_versicolor = iris.target_names[prediction_versicolor[0]]
+    print(f"Prediction for new sample {new_sample_versicolor}: {predicted_class_name_versicolor}")
+
+    new_sample_virginica = np.array([[7.0, 3.2, 6.0, 2.0]]) # Example data that might be Virginica
+    prediction_virginica = clf.predict(new_sample_virginica)
+    predicted_class_name_virginica = iris.target_names[prediction_virginica[0]]
+    print(f"Prediction for new sample {new_sample_virginica}: {predicted_class_name_virginica}")
+"""
