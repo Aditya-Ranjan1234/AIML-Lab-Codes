@@ -1,0 +1,12 @@
+Steps to run Program 4 (Pig Scripts):
+
+1. Upload your dataset to HDFS (replace prg124.csv with your actual file):
+   hdfs dfs -put prg124.csv /
+
+2. Run each script:
+   pig 4a.pig
+   pig 4b.pig
+   pig 4c.pig
+
+3. To view the output of 4c.pig:
+   hdfs dfs -cat /outputp4c/part-r-00000

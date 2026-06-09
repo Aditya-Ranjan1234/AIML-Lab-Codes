@@ -1,0 +1,16 @@
+Steps to run Program 3 (Pig Scripts):
+
+1. Upload your dataset to HDFS (replace dataset3.csv with your actual file):
+   hdfs dfs -put dataset3.csv /
+
+2. Run any of the Pig scripts:
+   pig script1.pig
+   pig script2.pig
+   pig script3.pig
+   pig script4.pig
+   pig script5.pig
+
+Or run Pig interactively:
+   pig
+
+Then copy and paste the commands from the scripts into the Pig shell.

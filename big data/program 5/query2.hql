@@ -1,0 +1,17 @@
+-- Program 5 - Query 2: Most Recent Ratings
+WITH MostRecentRatings AS (
+    SELECT USER_ID, MOVIE_ID, MOVIE_TITLE, RATINGS, RECOMMENDED,
+        ROW_NUMBER() OVER (PARTITION BY MOVIE_ID) AS rn
+    FROM movie_log
+    WHERE RATINGS IS NOT NULL
+)
+SELECT USER_ID, MOVIE_ID, MOVIE_TITLE,
+    CASE
+        WHEN RECOMMENDED = 'Y' THEN 1
+        WHEN RECOMMENDED = 'N' THEN 0
+        ELSE NULL
+    END AS RECOMMENDED_INT,
+    RATINGS AS most_recent_rating
+FROM MostRecentRatings
+WHERE rn = 1
+LIMIT 5;

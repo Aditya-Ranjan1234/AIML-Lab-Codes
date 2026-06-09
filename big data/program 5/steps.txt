@@ -1,0 +1,15 @@
+Steps to run Program 5 (Hive Scripts):
+
+1. Start Hive:
+   hive
+
+2. Run the setup script (or copy-paste the commands into Hive shell):
+   hive -f setup.hql
+
+3. Run query 1:
+   hive -f query1.hql
+
+4. Run query 2:
+   hive -f query2.hql
+
+Or run all commands interactively in the Hive shell by copying and pasting them one by one.

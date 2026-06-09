@@ -1,0 +1,22 @@
+Steps to run Program 2 (Max Temperature):
+
+1. Create a folder for compiled classes:
+   mkdir folder
+
+2. Compile all Java files:
+   javac -classpath $(hadoop classpath) -d folder M1.java R1.java Driver.java
+
+3. Create a JAR file:
+   jar -cvf maxtemperature.jar -C folder/ .
+
+4. Create input directory in HDFS (if not already created):
+   hdfs dfs -mkdir /input
+
+5. Upload your dataset to HDFS (replace dataset124.csv with your actual file):
+   hdfs dfs -put dataset124.csv /input/data.csv
+
+6. Run the MapReduce job:
+   yarn jar maxtemperature.jar Driver /input /output2
+
+7. View the result:
+   hdfs dfs -cat /output2/part-r-00000
